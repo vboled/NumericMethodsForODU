@@ -1,0 +1,8 @@
+t0: 0
+t1: 1
+initCond: 1 0
+equation: myTest1
+method: rk4
+numberOfStep: 1000
+defaultStep: 0.02
+outputFile: out.txt

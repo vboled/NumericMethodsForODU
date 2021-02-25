@@ -35,6 +35,7 @@ public:
     NumericODUSolver(std::string inputfile);
     void explicitEuler();
 	void rk2();
+	void rk4();
     void printSolver();
 	double residual();
     std::string getMethod() {return method;}
