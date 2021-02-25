@@ -2,7 +2,7 @@ t0: 0
 t1: 1
 initCond: 1 0
 equation: myTest1
-method: expEuler
-numberOfStep: 50
-defaultStep: 0.2
+method: rk2
+numberOfStep: 100
+defaultStep: 0.02
 outputFile: out.txt

@@ -7,7 +7,7 @@ void NumericODUSolver::printSolver() {
 	cout << "t = " << t << endl;
 	cout << "n = " << n << endl;
 	cout << "method = " << method << endl;
-	cout << "outputFile = " << outputFile;
+	cout << "outputFile = " << outputFile << endl;
 }
 
 NumericODUSolver::NumericODUSolver(string inputFile) {
@@ -27,10 +27,15 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
 		else if (word == "t1:")
 			t = stoi(value);
 		else if (word == "equation:") {
-			if (value == "test1")
-			{
+			if (value == "test1") {
 				equations.push_back(test1Equation1);
 				equations.push_back(test1Equation2);
+			}
+			else if (value == "myTest1") {
+				equations.push_back(myTest1Equation1);
+				equations.push_back(myTest1Equation2);
+				functions.push_back(myTest1ExactSol1);
+				functions.push_back(myTest1ExactSol2);
 			}
 			else {
 				cout << "No such test as: \" " << value << "\"";
@@ -57,7 +62,7 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
 		else if (word == "outputFile:")
 			outputFile = value;
 		else if (word == "defaultStep:")
-			step = stoi(value);
+			step = stod(value);
 		else {
 			cout << "I don't now such paramert as: \" " << word << "\"";
 			fin.close();

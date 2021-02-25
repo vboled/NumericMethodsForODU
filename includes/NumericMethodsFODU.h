@@ -7,6 +7,9 @@
 #include "equations.h"
 #include <fstream>
 
+#define M 0.3
+#define K 20
+
 typedef double(*eq) (double t, std::vector<double> &x);
 typedef std::vector<double>(*method_func) (double tau, std::vector<double> &yn, 
 		std::vector<double> &ym, std::vector<eq> &functions);
@@ -18,6 +21,8 @@ private:
 	std::vector<eq> equations;
 	std::vector<double> initialCond;
 	std::vector<fun> functions;
+	double r;
+	double a;
 	double t0;
 	double t;
 	double n;
@@ -29,6 +34,10 @@ private:
 public:
     NumericODUSolver(std::string inputfile);
     void explicitEuler();
+	void rk2();
     void printSolver();
-    std::string getMethod() { return method;}
+	double residual();
+    std::string getMethod() {return method;}
+	std::vector<double> getInitialCond() {return initialCond;}
+	std::string getTest() {return test;}
 };
