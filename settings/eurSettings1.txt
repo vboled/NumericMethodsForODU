@@ -1,0 +1,8 @@
+t0: 0
+t1: 1
+equation: test1
+method: expEuler
+numberOfStep: 1000
+defaultStep: 0.1
+initCond: 0 0
+outputFile: out.txt

@@ -1,16 +1,18 @@
+FLAGS = -std=c++11#-Wall -Wextra -Werror 
+
 TARGET = l
 
 HDRS = \
 		include
 
 SRCS = \
-	   src/main.cpp \
+	   src/*.cpp
 
 
 .PHONY: all clean
 
 all: $(SRCS)
-	$(CXX) -Wall -Wextra -Werror -I $(HDRS) -o $(TARGET) $(CXXFLAGS) $(SRCS) 
+	$(CXX) $(FLAGS) -I $(HDRS) -o $(TARGET) $(CXXFLAGS) $(SRCS) 
 	./$(TARGET)
 clean:
 	rm -rf $(TARGET)
