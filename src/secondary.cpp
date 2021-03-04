@@ -22,3 +22,4 @@ double NumericODUSolver::residual() {
 	}
 	return max;
 }
+

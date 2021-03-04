@@ -1,0 +1,8 @@
+t0: 0
+t1: 1
+initCond: 0 0
+equation: myTest1
+method: impEuler
+numberOfStep: 50
+defaultStep: 0.2
+outputFile: out.txt

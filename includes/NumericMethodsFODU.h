@@ -18,6 +18,7 @@ typedef double(*fun) (double t);
 class NumericODUSolver {
 private:
     std::vector<std::vector<double> > sol;
+	method_func F;
 	std::vector<eq> equations;
 	std::vector<double> initialCond;
 	std::vector<fun> functions;
@@ -33,12 +34,21 @@ private:
 
 public:
     NumericODUSolver(std::string inputfile);
+
     void explicitEuler();
 	void rk2();
 	void rk4();
+	void implicitEuler();
+
     void printSolver();
 	double residual();
     std::string getMethod() {return method;}
 	std::vector<double> getInitialCond() {return initialCond;}
 	std::string getTest() {return test;}
 };
+
+std::vector<double> imp_eur_eq(double tau, std::vector<double> &yn, 
+	std::vector<double> &ym, std::vector<eq> &functions);
+
+std::vector<double> newtonMethod(double tau, std::vector<double> &y_old,
+	std::vector<double> &y_new, std::vector<eq> &equations, method_func F);
