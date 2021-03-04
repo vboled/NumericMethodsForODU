@@ -1,5 +1,8 @@
 #include "../includes/NumericMethodsFODU.h"
 
+#include <sstream>
+#include <iterator>
+
 using namespace std;
 
 void NumericODUSolver::printSolver() {
@@ -47,13 +50,11 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
 			n = stoi(value);
 		else if (word == "initCond:")
 		{
-			vector <string> buffer;
-			boost::split(buffer, value, boost::is_any_of(" "));
-			for (auto i : buffer) {
-				if (i != "") {
-					initialCond.push_back(stoi(i));
-				}
-			}
+			istringstream ss(value);
+    		istream_iterator<string> begin(ss), end;
+    		vector<string> arrayTokens(begin, end);
+			for (string s : arrayTokens)
+				initialCond.push_back(stoi(s));
 		}
 		else if (word == "method:")
 		{
