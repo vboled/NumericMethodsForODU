@@ -23,6 +23,10 @@ int main() {
       solver.implicitEuler();
    else if (solver.getMethod() == "symmScheme")
       solver.symmetricScheme();
+   else if (solver.getMethod() == "prediction")
+      solver.predictionAndCorrection();
+   else if (solver.getMethod() == "adams")
+      solver.adams();
    else
       cout << "No such method as: \"" << solver.getMethod() << "\"";
    if (solver.getTest() == "myTest1" || solver.getTest() == "pendulum") {

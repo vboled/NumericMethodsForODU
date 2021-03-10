@@ -41,7 +41,10 @@ public:
 	void rk4();
 	void implicitEuler();
 	void symmetricScheme();
-
+	void predictionAndCorrection();
+	void adams();
+	
+	std::vector<std::vector<double >> fourStepRK4();
     void printSolver();
 	double residual();
     std::string getMethod() {return method;}
