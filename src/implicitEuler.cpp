@@ -26,7 +26,7 @@ void NumericODUSolver::implicitEuler() {
 	
 	out << "\n";
 	double tmp_t = t0;
-		for (std::size_t  i = 1; i <= n; i++)
+	for (std::size_t  i = 1; i <= n; i++)
 	{
 		tmp_t += step;
 		out << tmp_t << " ";
@@ -39,6 +39,5 @@ void NumericODUSolver::implicitEuler() {
 		out << "\n";
 		swap(x_old, x_new);
 	}
-
 	out.close();
 }

@@ -18,6 +18,7 @@ double NumericODUSolver::residual() {
 			x = fabs(x - functions[i](t));
 			if (x > max)
 				max = x;
+			// cout << x << endl;
 		}
 	}
 	return max;

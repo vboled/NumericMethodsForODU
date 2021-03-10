@@ -1,6 +1,6 @@
 t0: 0
 t1: 1
-initCond: 0 0
+initCond: 1 0
 equation: myTest1
 method: impEuler
 numberOfStep: 50

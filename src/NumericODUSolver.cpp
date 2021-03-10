@@ -65,6 +65,8 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
 		else if (word == "method:")
 		{
 			method = value;
+			if (method == "impEuler")
+				F = imp_eur_eq;
 		}
 		else if (word == "outputFile:")
 			outputFile = value;

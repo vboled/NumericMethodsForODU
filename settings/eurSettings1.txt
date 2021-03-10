@@ -1,7 +1,7 @@
 t0: 0
 t1: 1
 initCond: 1 0
-equation: myTest1
+equation: pendulum
 method: expEuler
 numberOfStep: 50
 defaultStep: 0.2
