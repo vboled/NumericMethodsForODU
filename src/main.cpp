@@ -21,6 +21,8 @@ int main() {
       solver.rk4();
    else if (solver.getMethod() == "impEuler")
       solver.implicitEuler();
+   else if (solver.getMethod() == "symmScheme")
+      solver.symmetricScheme();
    else
       cout << "No such method as: \"" << solver.getMethod() << "\"";
    if (solver.getTest() == "myTest1" || solver.getTest() == "pendulum") {

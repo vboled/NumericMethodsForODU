@@ -40,6 +40,7 @@ public:
 	void rk2();
 	void rk4();
 	void implicitEuler();
+	void symmetricScheme();
 
     void printSolver();
 	double residual();
@@ -53,3 +54,6 @@ std::vector<double> imp_eur_eq(double tau, std::vector<double> &yn,
 
 std::vector<double> newtonMethod(double tau, std::vector<double> &y_old,
 	std::vector<double> &y_new, std::vector<eq> &equations, method_func F);
+
+std::vector<double>	symm_eq(double tau, std::vector<double> &yn,
+	std::vector<double> &ym, std::vector<eq> &functions);

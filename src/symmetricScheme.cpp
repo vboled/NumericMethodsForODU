@@ -2,7 +2,7 @@
 
 using namespace std;
 
-void NumericODUSolver::implicitEuler() {
+void NumericODUSolver::symmetricScheme() {
     vector<double> x_old;
 	vector<double> x_new;
 
@@ -26,18 +26,16 @@ void NumericODUSolver::implicitEuler() {
 	
 	out << "\n";
 	double tmp_t = t0;
-	for (std::size_t  i = 1; i <= n; i++)
-	{
+	
+	for (size_t  i = 1; i <= n; i++) {
 		tmp_t += step;
 		out << tmp_t << " ";
-		std::vector<double> tmp_v(x_new.size());
-		// for (std::size_t j = 0; j < x_old.size(); j++)
-		// 	tmp_v[j] = x_old[j] + step * equations[j](tmp_t, x_old);
 		x_new = newtonMethod(step, x_old, x_old, equations, F);
 		for (std::size_t j = 0; j < x_new.size(); j++)
 			out << x_new[j] << " ";
 		out << "\n";
 		// swap(x_old, x_new);
 	}
+
 	out.close();
 }

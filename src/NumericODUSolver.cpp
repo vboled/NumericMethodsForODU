@@ -67,6 +67,8 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
 			method = value;
 			if (method == "impEuler")
 				F = imp_eur_eq;
+			else if (method == "symmScheme")
+				F = symm_eq;
 		}
 		else if (word == "outputFile:")
 			outputFile = value;
