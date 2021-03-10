@@ -1,7 +1,5 @@
 #include "../includes/NumericMethodsFODU.h"
 
-
-
 //test1
 double		test1Equation1(double t, std::vector<double> &x) {
 	return 2 * x[0] + x[1] * x[1] - 1;
@@ -13,22 +11,21 @@ double		test1Equation2(double t, std::vector<double> &x) {
 
 //test Pendulum
 
-//testPendulum
-// double		pendulumEquation1(double t, std::vector<double> &x) {
-// 	return x[1];
-// }
+double		pendulumEquation1(double t, std::vector<double> &x) {
+	return x[1];
+}
 
-// double		pendulumEquationd2(double t, std::vector<double> &x) {
-// 	return -M / K * x[0];
-// }
+double		pendulumEquation2(double t, std::vector<double> &x) {
+	return -K / M * x[0];
+}
 
-// double		pendulumExactSol1(double t, double a, double r) {
-// 	return r * cos(sqrt(K / M) * t + a);
-// }
+double		pendulumExactSol1(double t) {
+	return cos(sqrt(K / M) * t);
+}
 
-// double		pendulumExactSol2(double t, double a, double r) {
-// 	return -r * sqrt(K / M) * sin(sqrt(K / M) * t + a);
-// }
+double		pendulumExactSol2(double t) {
+	return -sqrt(K / M) * sin(sqrt(K / M) * t);
+}
 
 //mytest1 x1(t0) = 1, x2(t0) = 0
 double      myTest1Equation1(double t, std::vector<double> &x) {

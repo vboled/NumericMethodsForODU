@@ -40,6 +40,12 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
 				functions.push_back(myTest1ExactSol1);
 				functions.push_back(myTest1ExactSol2);
 			}
+			else if (value == "pendulum") {
+				equations.push_back(pendulumEquation1);
+				equations.push_back(pendulumEquation2);
+				functions.push_back(pendulumExactSol1);
+				functions.push_back(pendulumExactSol2);
+			}
 			else {
 				cout << "No such test as: \" " << value << "\"";
 				exit(0);

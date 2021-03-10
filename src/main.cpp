@@ -11,7 +11,7 @@ double getA(std::vector<double> init) {
 }
 
 int main() {
-   NumericODUSolver solver("settings/impEulerSettings1.txt");
+   NumericODUSolver solver("settings/rk4Settings.txt");
    solver.printSolver();
    if (solver.getMethod() == "expEuler")
       solver.explicitEuler();
@@ -23,7 +23,7 @@ int main() {
       solver.implicitEuler();
    else
       cout << "No such method as: \"" << solver.getMethod() << "\"";
-   if (solver.getTest() == "myTest1") {
+   if (solver.getTest() == "myTest1" || solver.getTest() == "pendulum") {
       cout.precision(10);
       cout << "residual " << solver.residual();
    }

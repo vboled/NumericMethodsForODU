@@ -9,6 +9,7 @@
 
 #define M 0.3
 #define K 20
+#define PI 3.1415926535
 
 typedef double(*eq) (double t, std::vector<double> &x);
 typedef std::vector<double>(*method_func) (double tau, std::vector<double> &yn, 
