@@ -36,7 +36,7 @@ void NumericODUSolver::adams() {
     xn_2 = firstFourStep[1];
     xn_1 = firstFourStep[2];
     xn = firstFourStep[3];
-
+    int countOfR = 0;
     vector<double> xn1;
     xn1.resize(equations.size());
 	while (tmp_t < t) {
@@ -46,6 +46,7 @@ void NumericODUSolver::adams() {
             37 * equations[j](tmp_t, xn_2) - 9 * equations[j](tmp_t, xn_3));
             out << xn1[j] << " ";
         }
+        countOfR += equations.size() * 4;
         swap(xn_3, xn_2);
         swap(xn_2, xn_1);
         swap(xn_1, xn);
@@ -53,5 +54,6 @@ void NumericODUSolver::adams() {
         out << endl;
         tmp_t += step;
     }
+    cout << "count of evaluate right: " << countOfR << endl;
 	out.close();
 }

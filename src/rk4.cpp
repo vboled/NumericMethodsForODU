@@ -23,6 +23,7 @@ void	NumericODUSolver::rk4()
     kn.resize(equations.size());
 	xi = initialCond;
 	int n = (t - t0) / step;
+	int countOfR = 0;
 	double tmp_t = t0;
     out << "method: " << method << endl;
 	out << "test: " << test << endl;
@@ -44,6 +45,8 @@ void	NumericODUSolver::rk4()
         for (size_t j = 0; j < equations.size(); j++)
             kn[j] = s1 * k1[j] + s2 * k2[j] + s3 * k3[j] + s4 * k4[j];
 
+		countOfR += equations.size() * 4;
+
         for (size_t j = 0; j < equations.size(); j++) {
             xj[j] = xi[j] + step * kn[j];
             out << xj[j] << " ";
@@ -52,5 +55,6 @@ void	NumericODUSolver::rk4()
 		swap(xi, xj);
 		tmp_t += step;
 	}
+	cout << "count of evaluation right: " << countOfR << endl;
 	out.close();
 }

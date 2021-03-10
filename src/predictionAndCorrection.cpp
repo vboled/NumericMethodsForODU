@@ -54,7 +54,7 @@ void NumericODUSolver::predictionAndCorrection() {
     vector<double> xn_1;
     vector<double> xn;
     vector<vector<double> > firstFourStep;
-
+    int countOfR = 0;
     firstFourStep.resize(4);
     xn_3.resize(equations.size());
 	xn_2.resize(equations.size());
@@ -92,15 +92,20 @@ void NumericODUSolver::predictionAndCorrection() {
 	while (tmp_t < t) {
         out << step << " ";
         //прогноз
-        for (int j = 0; j < equations.size(); j++)
+        for (int j = 0; j < equations.size(); j++) {
             x_prognose[j] = xn[j] + step / 24 * (55 * equations[j](tmp_t, xn) - 59 * equations[j](tmp_t, xn_1) +
             37 * equations[j](tmp_t, xn_2) - 9 * equations[j](tmp_t, xn_3));
-        for (int j = 0; j < equations.size(); j++)
+            countOfR += 4;
+        }
+        for (int j = 0; j < equations.size(); j++) {
             f_prognose[j] = equations[j](tmp_t, x_prognose);
+            countOfR++;
+        }
         //коррекция
         for (int j = 0; j < equations.size(); j++) {
             x_correction[j] = xn[j] + step / 24 * (9 * f_prognose[j] + 19 * equations[j](tmp_t, xn) -
             5 * equations[j](tmp_t, xn_1) + equations[j](tmp_t, xn_2));
+            countOfR += 3;
             out << x_correction[j] << " ";
         }
         swap(xn_3, xn_2);
@@ -110,5 +115,6 @@ void NumericODUSolver::predictionAndCorrection() {
         out << endl;
         tmp_t += step;
     }
+    cout << "count of evaluate right: " << countOfR;
 	out.close();
 }

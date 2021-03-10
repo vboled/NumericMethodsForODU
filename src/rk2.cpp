@@ -12,6 +12,7 @@ void	NumericODUSolver::rk2()
         cout << "Output file doesn't open!!!";
         exit(0);
     }
+	int countOfR = 0;
 	xi.resize(equations.size());
 	xj.resize(equations.size());
 	k1.resize(equations.size());
@@ -28,6 +29,7 @@ void	NumericODUSolver::rk2()
 		out << t0 + i * step << " ";
 		for (size_t j = 0; j < equations.size(); j++)
 			k2[j] = equations[j](tmp_t + a2 * step, k1);
+		countOfR += equations.size() * 2;
 		for (size_t j = 0; j < equations.size(); j++)
 		{
 			xj[j] = xi[j] + step * k2[j];
@@ -37,5 +39,6 @@ void	NumericODUSolver::rk2()
 		swap(xi, xj);
 		tmp_t += step;
 	}
+	cout << "count of evaluate right: " << countOfR;
 	out.close();
 }
