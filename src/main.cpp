@@ -11,7 +11,7 @@ double getA(std::vector<double> init) {
 }
 
 int main() {
-   NumericODUSolver solver("settings/impEulerSettings1.txt");
+   NumericODUSolver solver("settings/eurSettings1.txt");
    solver.printSolver();
    if (solver.getMethod() == "expEuler")
       solver.explicitEuler();

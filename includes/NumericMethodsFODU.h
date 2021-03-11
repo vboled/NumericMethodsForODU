@@ -7,7 +7,7 @@
 #include "equations.h"
 #include <fstream>
 
-#define M 0.3
+#define M 20
 #define K 20
 #define PI 3.1415926535
 

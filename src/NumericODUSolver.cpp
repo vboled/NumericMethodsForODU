@@ -11,6 +11,10 @@ void NumericODUSolver::printSolver() {
 	cout << "n = " << n << endl;
 	cout << "method = " << method << endl;
 	cout << "outputFile = " << outputFile << endl;
+	cout << "initCond: ";
+	for (int j = 0; j < equations.size(); j++)
+		cout << initialCond[j] << " ";
+	cout << endl;
 }
 
 NumericODUSolver::NumericODUSolver(string inputFile) {
