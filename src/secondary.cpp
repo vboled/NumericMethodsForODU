@@ -9,7 +9,7 @@ double NumericODUSolver::residual() {
     cout << "for " << str;
     getline(set, str);
     cout << " with " << str << " is:\n";
-    double x = 0.0, max = 0.0, t = 0.0;
+    double x = 0.0, max = 0.0, t = 0.0, max_t = 0.0;
 	while(set >> t)
 	{
 		for (std::size_t i = 0; i < functions.size(); i++)
@@ -18,7 +18,6 @@ double NumericODUSolver::residual() {
 			x = fabs(x - functions[i](t));
 			if (x > max)
 				max = x;
-			// cout << x << endl;
 		}
 	}
 	return max;

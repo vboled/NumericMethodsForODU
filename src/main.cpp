@@ -27,6 +27,8 @@ int main() {
       solver.predictionAndCorrection();
    else if (solver.getMethod() == "adams")
       solver.adams();
+   else if (solver.getMethod() == "rk2Auto")
+      solver.rk2Auto();
    else
       cout << "No such method as: \"" << solver.getMethod() << "\"";
    if (solver.getTest() == "myTest1" || solver.getTest() == "pendulum") {

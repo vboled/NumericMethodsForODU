@@ -4,7 +4,7 @@ using namespace std;
 
 void	NumericODUSolver::rk2()
 {
-	vector<double> xi, xj; // xj = x(i + 1)
+vector<double> xi, xj; // xj = x(i + 1)
 	vector<double> k1, k2;
 	double b21 = 0.5, a2 = 0.5;
 	ofstream out(outputFile);
@@ -39,6 +39,6 @@ void	NumericODUSolver::rk2()
 		swap(xi, xj);
 		tmp_t += step;
 	}
-	cout << "count of evaluate right: " << countOfR;
+	cout << "count of evaluate right: " << countOfR << endl;
 	out.close();
 }

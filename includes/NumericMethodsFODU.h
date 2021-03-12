@@ -11,6 +11,8 @@
 #define K 20
 #define PI 3.1415926535
 
+#define LOW 1e-6
+
 typedef double(*eq) (double t, std::vector<double> &x);
 typedef std::vector<double>(*method_func) (double tau, std::vector<double> &yn, 
 		std::vector<double> &ym, std::vector<eq> &functions);
@@ -39,15 +41,18 @@ public:
     void explicitEuler();
 	void rk2();
 	void rk4();
+	void rk2Auto();
 	void implicitEuler();
 	void symmetricScheme();
 	void predictionAndCorrection();
 	void adams();
 	
+	double infNorm(const std::vector<double> &vec);
 	std::vector<std::vector<double >> fourStepRK4();
     void printSolver();
 	double residual();
     std::string getMethod() {return method;}
+	std::vector<double> oneStepRK2(std::vector<double> initCond, double step, double t);
 	std::vector<double> getInitialCond() {return initialCond;}
 	std::string getTest() {return test;}
 };
