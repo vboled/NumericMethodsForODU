@@ -64,7 +64,7 @@ NumericODUSolver::NumericODUSolver(string inputFile) {
     		istream_iterator<string> begin(ss), end;
     		vector<string> arrayTokens(begin, end);
 			for (string s : arrayTokens)
-				initialCond.push_back(stoi(s));
+				initialCond.push_back(stof(s));
 		}
 		else if (word == "method:")
 		{

@@ -50,8 +50,6 @@ void	NumericODUSolver::rk2Auto()
 	int n = (t - t0) / step;
 	double tmp_t = t0, newStep = 0, error = 0;
     bool makeStep = false;
-    out << "method: " << method << endl;
-	out << "test: " << test << endl;
 	for (size_t i = 0; i <= n; i++)
 	{
         while (!makeStep) {

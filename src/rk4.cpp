@@ -43,8 +43,6 @@ void	NumericODUSolver::rk4()
 	xi = initialCond;
 	int n = (t - t0) / step;
 	double tmp_t = t0;
-    out << "method: " << method << endl;
-	out << "test: " << test << endl;
 	for (size_t i = 0; i <= n; i++)
 	{
 		out << t0 + i * step << " ";
@@ -69,7 +67,7 @@ void	NumericODUSolver::rk4()
 		for (size_t j = 0; j < equations.size(); j++)
 			xj[j] = xi[j] + step * (s1 * k1[j] + s2 * k2[j] + s3 * k3[j] + s4 * k4[j]);
 
-		countOfR += equations.size() * 4;
+		countOfR += 4;
 		for (size_t j = 0; j < equations.size(); j++)
 		{
 			out << xj[j] << " ";

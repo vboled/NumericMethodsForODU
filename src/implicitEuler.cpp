@@ -17,8 +17,6 @@ void NumericODUSolver::implicitEuler() {
     
 	double step = (t - t0) / n;
     x_old = initialCond;
-	out << "method: " << method << endl;
-	out << "test: " << test << endl;
 	out << t0 << " ";
 	
 	for (size_t j = 0; j < x_old.size(); j++)
@@ -26,6 +24,8 @@ void NumericODUSolver::implicitEuler() {
 	
 	out << "\n";
 	double tmp_t = t0;
+	double countOfEq = 0;
+	double countOfR = 0;
 	for (std::size_t  i = 1; i <= n; i++)
 	{
 		tmp_t += step;
@@ -33,11 +33,14 @@ void NumericODUSolver::implicitEuler() {
 		std::vector<double> tmp_v(x_new.size());
 		// for (std::size_t j = 0; j < x_old.size(); j++)
 		// 	tmp_v[j] = x_old[j] + step * equations[j](tmp_t, x_old);
-		x_new = newtonMethod(step, x_old, x_old, equations, F);
+		x_new = newtonMethod(step, x_old, x_old, equations, F, countOfR);
+		countOfEq++;
 		for (std::size_t j = 0; j < x_new.size(); j++)
 			out << x_new[j] << " ";
 		out << "\n";
 		// swap(x_old, x_new);
 	}
+	cout << "num of countOfEq" << countOfEq << endl;
+	cout << "num of countOfR" << countOfR << endl;
 	out.close();
 }

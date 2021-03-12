@@ -225,7 +225,7 @@ vector<vector<double>> inverseMatrix(vector<vector<double>> &A)
 }
 
 vector<double> 	newtonMethod(double tau, vector<double> &y_old,
-						vector<double> &y_new, vector<eq> &equations, method_func F)
+						vector<double> &y_new, vector<eq> &equations, method_func F, double &t)
 {
 	vector<double> x_old; //xj = x(i+1)
 	vector<double> x_new;
@@ -245,10 +245,12 @@ vector<double> 	newtonMethod(double tau, vector<double> &y_old,
 	do
 	{
 		A = matrixJacoby(tau, y_old, x_old, equations, F);
+		t += 1 + equations.size();
 		A = inverseMatrix(A);
 //		print_v(tmp_f);
 //		cout << "\n";
 		tmp_v = multMatrixVector(A, F(tau, y_old, x_old, equations));
+		t += 1 + equations.size();
 		for (size_t j = 0; j < x_old.size(); j++)
 		{
 			x_new[j] = x_old[j] - tmp_v[j];

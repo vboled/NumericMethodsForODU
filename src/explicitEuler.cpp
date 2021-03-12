@@ -17,8 +17,6 @@ void NumericODUSolver::explicitEuler() {
     
 	double step = (t - t0) / n;
     x_old = initialCond;
-	out << "method: " << method << endl;
-	out << "test: " << test << endl;
 	out << t0 << " ";
 	
 	for (size_t j = 0; j < x_old.size(); j++)

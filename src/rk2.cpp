@@ -20,8 +20,6 @@ vector<double> xi, xj; // xj = x(i + 1)
 	xi = initialCond;
 	int n = (t - t0) / step;
 	double tmp_t = t0;
-    out << "method: " << method << endl;
-	out << "test: " << test << endl;
 	for (size_t i = 0; i <= n; i++)
 	{
 		for (size_t j = 0; j < equations.size(); j++)
@@ -29,7 +27,7 @@ vector<double> xi, xj; // xj = x(i + 1)
 		out << t0 + i * step << " ";
 		for (size_t j = 0; j < equations.size(); j++)
 			k2[j] = equations[j](tmp_t + a2 * step, k1);
-		countOfR += equations.size() * 2;
+		countOfR += 2;
 		for (size_t j = 0; j < equations.size(); j++)
 		{
 			xj[j] = xi[j] + step * k2[j];

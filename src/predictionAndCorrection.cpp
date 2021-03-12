@@ -121,6 +121,6 @@ void NumericODUSolver::predictionAndCorrection() {
         out << endl;
         tmp_t += step;
     }
-    cout << "count of evaluate right: " << countOfR;
+    cout << "count of evaluate right: " << countOfR + 16;
 	out.close();
 }

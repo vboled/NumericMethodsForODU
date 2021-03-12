@@ -61,7 +61,7 @@ std::vector<double> imp_eur_eq(double tau, std::vector<double> &yn,
 	std::vector<double> &ym, std::vector<eq> &functions);
 
 std::vector<double> newtonMethod(double tau, std::vector<double> &y_old,
-	std::vector<double> &y_new, std::vector<eq> &equations, method_func F);
+	std::vector<double> &y_new, std::vector<eq> &equations, method_func F, double &t);
 
 std::vector<double>	symm_eq(double tau, std::vector<double> &yn,
 	std::vector<double> &ym, std::vector<eq> &functions);

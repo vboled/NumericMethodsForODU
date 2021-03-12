@@ -17,8 +17,6 @@ void NumericODUSolver::symmetricScheme() {
     
 	double step = (t - t0) / n;
     x_old = initialCond;
-	out << "method: " << method << endl;
-	out << "test: " << test << endl;
 	out << t0 << " ";
 	
 	for (size_t j = 0; j < x_old.size(); j++)
@@ -26,16 +24,19 @@ void NumericODUSolver::symmetricScheme() {
 	
 	out << "\n";
 	double tmp_t = t0;
-	
+	double countOfEq = 0;
+	double countOfR = 0;
 	for (size_t  i = 1; i <= n; i++) {
 		tmp_t += step;
 		out << tmp_t << " ";
-		x_new = newtonMethod(step, x_old, x_old, equations, F);
+		x_new = newtonMethod(step, x_old, x_old, equations, F, countOfR);
+		countOfEq++;
 		for (std::size_t j = 0; j < x_new.size(); j++)
 			out << x_new[j] << " ";
 		out << "\n";
 		// swap(x_old, x_new);
 	}
-
+	cout << "num of countOfEq" << countOfEq << endl;
+	cout << "num of countOfR" << countOfR << endl;
 	out.close();
 }
