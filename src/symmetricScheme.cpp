@@ -5,7 +5,8 @@ using namespace std;
 void NumericODUSolver::symmetricScheme() {
     vector<double> x_old;
 	vector<double> x_new;
-
+	vector<double> tmp_v;
+	
 	ofstream out(outputFile);
 	if (!out.is_open()) {
         cout << "Output file doesn't open!!!";
@@ -14,7 +15,7 @@ void NumericODUSolver::symmetricScheme() {
 
     x_old.resize(equations.size());
 	x_new.resize(equations.size());
-    
+    tmp_v.resize(equations.size());
 	double step = (t - t0) / n;
     x_old = initialCond;
 	out << t0 << " ";
@@ -29,12 +30,14 @@ void NumericODUSolver::symmetricScheme() {
 	for (size_t  i = 1; i <= n; i++) {
 		tmp_t += step;
 		out << tmp_t << " ";
-		x_new = newtonMethod(step, x_old, x_old, equations, F, countOfR);
+		for (std::size_t j = 0; j < x_old.size(); j++)
+			tmp_v[j] = x_old[j] + step * equations[j](tmp_t, x_old);
+		x_new = newtonMethod(step, x_old, tmp_v, equations, F, countOfR);
 		countOfEq++;
 		for (std::size_t j = 0; j < x_new.size(); j++)
 			out << x_new[j] << " ";
 		out << "\n";
-		// swap(x_old, x_new);
+		swap(x_old, x_new);
 	}
 	cout << "num of countOfEq" << countOfEq << endl;
 	cout << "num of countOfR" << countOfR << endl;

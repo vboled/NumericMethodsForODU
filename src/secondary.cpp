@@ -15,6 +15,8 @@ double NumericODUSolver::residual() {
 			if (x > max)
 				max = x;
 		}
+		if (method == "rk2Auto")
+			set >> x;
 	}
 	return max;
 }

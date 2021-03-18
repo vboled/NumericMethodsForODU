@@ -12,6 +12,9 @@
 #define PI 3.1415926535
 
 #define LOW 1e-6
+#define FACMAX 1.25
+#define FAC 0.75
+#define FACMIN 0.66
 
 typedef double(*eq) (double t, std::vector<double> &x);
 typedef std::vector<double>(*method_func) (double tau, std::vector<double> &yn, 

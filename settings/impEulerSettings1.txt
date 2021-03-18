@@ -2,7 +2,7 @@ t0: 0
 t1: 1
 initCond: 1 0
 equation: myTest1
-method: impEuler
-numberOfStep: 50
-defaultStep: 0.2
+method: adams
+numberOfStep: 5000
+defaultStep: 0.002
 outputFile: out.txt

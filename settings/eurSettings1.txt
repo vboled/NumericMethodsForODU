@@ -1,8 +1,8 @@
 t0: 0
-t1: 1
-initCond: 1 0
+t1: 50
+initCond: 0.5 0.5
 equation: pendulum
 method: expEuler
-numberOfStep: 50
-defaultStep: 0.2
-outputFile: out.txt
+numberOfStep: 1000
+defaultStep: 0.01
+outputFile: out1.txt

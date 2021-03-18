@@ -52,6 +52,8 @@ void	NumericODUSolver::rk2Auto()
     bool makeStep = false;
 	for (size_t i = 0; i <= n; i++)
 	{
+        if (t0 + i * step > 2 * t)
+            break;
         while (!makeStep) {
             xi_1 = oneStepRK2(xi, step, tmp_t);
             xi1_1 = oneStepRK2(xi, step / 2, tmp_t);
@@ -63,10 +65,12 @@ void	NumericODUSolver::rk2Auto()
                 out << t0 + i * step << " ";
                 for (size_t j = 0; j < equations.size(); j++)
                     out << xi1_2[j] << " ";
+                out << step << " ";
                 out << endl;
                 if (error <= LOW / 2)
                     step *= 2;
                 tmp_t += step;
+                xi = xi1_2;
                 makeStep = true;
             } else {
                 step /= 2;

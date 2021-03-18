@@ -1,8 +1,8 @@
 t0: 0
-t1: 1
-initCond: 1 0
-equation: pendulumTest
-method: expEuler
+t1: 10
+initCond: 1 0.5
+equation: pendulum
+method: rk2Auto
 numberOfStep: 10000
-defaultStep: 0.1
-outputFile: out.txt
+defaultStep: 0.01
+outputFile: Auto.txt
